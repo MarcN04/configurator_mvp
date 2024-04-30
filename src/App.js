@@ -19,9 +19,14 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await put('bookstoreapi', '/book', {
-        body: { ...formData }
+      const response = await put({
+        apiName: "bookstoreapi",
+        path: "/book/123",
+        options: {
+          body: { formData },
+        }
       });
+      
       console.log('Response:', response);
       // Optionally, reset the form after successful submission
       setFormData({
